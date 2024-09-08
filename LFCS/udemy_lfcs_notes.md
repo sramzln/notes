@@ -547,12 +547,50 @@ sysctl -p /etc/sysctl.d/<filename>.conf
 
 ```Bash
 # SELinux context
+# unconfine_u:object_r:user_home_t:s0
+#     user      role       type    level
+ id -Z # user context
+ sudo semanage login -l
+
+ # SELinux modes
+ Getenforce
+ Setenforce
+
 
 ```
 
 ### 57 - Create and Enforce MAC Using SELinux
 
 ```Bash
+# Check is SELinux run
+sestatus
+getenforce
+
+# Audit SELinux
+audit2why --all| less
+
+# See wich process use particular context
+ps -eZ | grep sshd_t
+
+# Autorise all modules denied by SELinux
+audit2allow --all -M mymodule
+semodule -i mymodule.pp
+
+# SELinux config
+vim /etc/selinux/config
+
+# Show labels
+seinfo -u
+seinfo -r
+
+# Copy all chcon labels
+chcon --reference=/var/log/dmasg /var/log/auth.log
+
+# Restore labels
+restorecon -F -R /var/www/ # -F force to relabel all types
+
+# Set bbooleans
+semanage boolean --list
 
 ```
 
@@ -562,9 +600,17 @@ sysctl -p /etc/sysctl.d/<filename>.conf
 
 ```
 
-### 5
+### 59 - Create and Manage Containers
 
 ```Bash
-
+docker images
+docker ps -a
+docker rm # remove containers
+docker rmi # remove images
 ```
 
+### 60 - Manage and Configure Virtual Machines
+
+```Shell
+
+```
