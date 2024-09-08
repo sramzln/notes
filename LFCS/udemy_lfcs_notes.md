@@ -2,7 +2,7 @@
 
 ## Essential Commands
 
-### 14 - Create, delete, copy and move files
+### 14. Create, delete, copy and move files
 
 ```Bash
 # previous folder
@@ -21,7 +21,7 @@ ssh -v
 stat
 ```
 
-### 15,16 - create and manage Hard ans Soft Links
+### 15,16. create and manage Hard ans Soft Links
 
 ```Bash
 # Hard link
@@ -34,7 +34,7 @@ ln path_to_target_file path_to_link_file
 ln -s target link
 ```
 
-### 19 - SUID, SGID ans Sticky Bit
+### 19. SUID, SGID ans Sticky Bit
 
 ```Bash
 # SUID
@@ -52,7 +52,7 @@ ln -s target link
 chmod +t
 ```
 
-### 20,21 - Search for files, compare and manipulate file contents
+### 20,21. Search for files, compare and manipulate file contents
 
 ```Bash
 # Find
@@ -116,7 +116,7 @@ grep -wi 'password' # the exact word, lower or uppercase
 grep -o # only matching
 ```
 
-### 25 - Ananlyze text using basic regular expressions
+### 25. Ananlyze text using basic regular expressions
 
 ```Bash
 # Regular expressions
@@ -136,7 +136,7 @@ $ # '7$' => at the end, -w the end and only one char.
 
 ```
 
-### 28,29 - Archive, Back UP, unpack, compress / Uncompress Files
+### 28,29. Archive, Back UP, unpack, compress / Uncompress Files
 
 ```Shell
 # tar = tape Archive
@@ -195,7 +195,7 @@ tar czf arhive.tar.gz file1
 tar --create --autocompress --file archiv.tar.gz file1
 ```
 
-### 30 - Backup to a remote system
+### 30. Backup to a remote system
 
 ```Bash
 # Backup with rsync
@@ -211,7 +211,7 @@ sudo dd if=/dev/vda of=diskimage.raw bs=1M status=progress
 sudo dd if=diskimage.raw of=/dev/vda  bs=1M status=progress
 ```
 
-### 31 - Input, output redirection, pipelineing
+### 31. Input, output redirection, pipelineing
 
 ```Bash
 # Input, output redirection
@@ -239,7 +239,7 @@ grep -v '^#' /etc/login.defs | sort | column -t
 
 ```
 
-### 33-36 SSL Certificates, GIT
+### 33-36. SSL Certificates, GIT
 
 ```Bash
 # https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs
@@ -273,7 +273,7 @@ git merge documentation
 
 ## Operations Deployment
 
-### 38 - Boot, Reboot, Shutdown
+### 38. Boot, Reboot, Shutdown
 
 ```Shell
 sudo systemctl reboot
@@ -312,7 +312,7 @@ sudo update-grub # alternatively sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo reboot
 ```
 
-### 41 - Scripting ti automate system maintenance tasks
+### 41. Scripting ti automate system maintenance tasks
 
 ```Shell
 # Scripts
@@ -331,7 +331,7 @@ fi
  >0 ==> NOK
 ```
 
-### 42 - Manage Startup Process ans Services
+### 42. Manage Startup Process ans Services
 
 ```Bash
 # Show all systemd unit services
@@ -352,7 +352,7 @@ systemctl start/stop/status/restart/reload/reload-or-restart service.target
 systemctl enable/disable --now service.target
 ```
 
-### 43 - Create systemd services
+### 43. Create systemd services
 
 ```Bash
 # systemd-cat - Connect a pipeline or program's output with the journal
@@ -372,14 +372,14 @@ systemctl daemon-reload # after each modification
 journalctl -f # follow mode
 ```
 
-### 44 - LAB
+### 44. LAB
 
 ```Bash
 #!/bin/bash
 systemctl is-enabled sshd.service
 ```
 
-### 45 - Diagnose and manage processes
+### 45. Diagnose and manage processes
 
 ```Bash
 # Show all processes
@@ -416,7 +416,7 @@ fg # show in foreground the app in the backgroud
 bg # show in backgroud the app in the foreground
 ```
 
-### 46 - Locate and analyse system file logs
+### 46. Locate and analyse system file logs
 
 ```Bash
 # rsyslog = rocket-fast system for log processing
@@ -449,7 +449,7 @@ last
 lastlog
 ```
 
-### 47 - LAB manage process and analyze logs
+### 47. LAB manage process and analyze logs
 
 ```Bash
 # Show all processes with nice values
@@ -468,13 +468,13 @@ ps aux | pgrep rpcbind > pid.txt
 ps -u 1
 ```
 
-### 48 - Schedule Tasks to Run at a Set Date and Time
+### 48. Schedule Tasks to Run at a Set Date and Time
 
 ```Bash
 #
 ```
 
-### 52 -  Lab: Manage Software, Repositories & Install Software from Source
+### 52.  Lab: Manage Software, Repositories & Install Software from Source
 
 ```Bash
 # Apt remove package with dependecies
@@ -495,7 +495,7 @@ sudo make install
 tmux
 ```
 
-### 53 - Verify Integrity and Availability of Resources and Processes
+### 53. Verify Integrity and Availability of Resources and Processes
 
 ```Bash
 # Disk usage
@@ -527,7 +527,7 @@ systemctl status service
 journalctl -u service
 ```
 
-### 55 - Change Kernel Runtime Parameters, Persistent and Non-Persistent
+### 55. Change Kernel Runtime Parameters, Persistent and Non-Persistent
 
 ```Bash
 # List all runtime parameters
@@ -543,7 +543,7 @@ sysctl -p /etc/sysctl.d/<filename>.conf
 /etc/sysctl.conf # could be modified by upgrade
 ```
 
-### 56 - List and Identify SELinux File and Process Contexts
+### 56. List and Identify SELinux File and Process Contexts
 
 ```Bash
 # SELinux context
@@ -555,11 +555,9 @@ sysctl -p /etc/sysctl.d/<filename>.conf
  # SELinux modes
  Getenforce
  Setenforce
-
-
 ```
 
-### 57 - Create and Enforce MAC Using SELinux
+### 57. Create and Enforce MAC Using SELinux
 
 ```Bash
 # Check is SELinux run
@@ -591,16 +589,15 @@ restorecon -F -R /var/www/ # -F force to relabel all types
 
 # Set bbooleans
 semanage boolean --list
-
 ```
 
-### 58 - Lab: Kernel Runtime Parameters and SELinux
+### 58. Lab: Kernel Runtime Parameters and SELinux
 
 ```Bash
 
 ```
 
-### 59 - Create and Manage Containers
+### 59. Create and Manage Containers
 
 ```Bash
 docker images
@@ -609,7 +606,77 @@ docker rm # remove containers
 docker rmi # remove images
 ```
 
-### 60 - Manage and Configure Virtual Machines
+### 60. Manage and Configure Virtual Machines
+
+```Shell
+virsh # Manage virtual machines from cmd line
+virsh list
+virsh list --all
+virsh start Machine
+virsh shutdown Machine
+```
+
+## 4. Users and groups
+
+### 65. Create, Delete, and Modify Local Groups and Group Memberships
+
+```Shell
+adduser john
+groupadd developers
+gpasswd --add john developers
+gpasswd -a johne developers
+gpasswd --delete john developers
+gpasswd -d johne developers
+
+# Change user's primary group
+usermod -g developers john
+usermod -gid developers john
+
+# Rename a group
+groupmod --new-name programmers developers
+groupmod -n programmers developers
+
+# Delet a group
+groupdel programmers
+
+# Password expiry 
+chage - l username
+
+# Create system account
+adduser --system apachedev
+
+# User password never expire
+sudo usermod -e "" janec
+hage -I -1 -m 0 -M 99999 -E -1 username
+
+
+# User has to change password immediately
+sudo chage --lastday 0 jane
+passwd --expire jane
+chage -M -1 baeldung
+passwd -x -1 baeldung
+
+# Add user to group
+sudo usermod -a -G developers jane
+```
+
+### 67. Manage System-Wide Environment Profiles
+
+```Shell
+# Env variables
+printenv
+env
+$HOME
+$HISTSIZE
+
+# ENv variables for all users
+/etc/environment
+
+# Execute sript when users logged in
+/etc/profile.d/lastlogin.sh
+```
+
+### 68. Manage Template User Environment
 
 ```Shell
 
