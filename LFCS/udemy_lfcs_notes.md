@@ -679,5 +679,69 @@ $HISTSIZE
 ### 68. Manage Template User Environment
 
 ```Shell
+# /etc/skel - for new users
+sudo /etc/skel/.bashrc
+source .bashrc
+source /etc/environment
+
+# executed for all users
+/etc/profile.d/todo.sh
+# .bashrc
+export PATH=$PATH:/path/to/folder
+```
+
+### 70. Configure User Resource Limits
+
+```Shell
+sudo vim /etc/security/limits.conf
+
+# Limits of current user
+ulimit -a
+```
+
+### 71. Manage User Privileges
+
+```Shell
+sudo
+
+# Add to sudoers
+sudo gpasswd -d trinity sudo 
+
+# Delete from sudoers
+sudo gpasswd -d trinity sudo 
+
+# /etc/sudoers
+visudo
+
+%sudo ALL=(ALL:ALL) ALL
+groupe host=(run as user a command, root by default:run as group a command, root by default) ALL
+```
+
+### 73. Manage Access to Root Account
+
+```Shell
+# To become root with sudo rights
+sudo -i
+sudo --login
+
+# To become root with password
+su -
+su -l
+su --login
+
+# To lock
+sudo passwd -l root
+sudo passwd --lock root
+
+# To unlock
+sudo passwd -u root
+sudo passwd --unlock root
+```
+
+## 5. Networking
+
+### 75. Configure IPv4 and IPv6 Networking and Hostname Resolution
+
+```Shell
 
 ```
