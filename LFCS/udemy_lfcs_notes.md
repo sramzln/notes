@@ -740,8 +740,66 @@ sudo passwd --unlock root
 
 ## 5. Networking
 
-### 75. Configure IPv4 and IPv6 Networking and Hostname Resolution
+### 76. Demo: Configure IPv4 and IPv6 Networking and Hostname Resolution
 
 ```Shell
+# List interfaces
+ip link
 
+# IP
+ip addr / ip a
+ip -c addr # Details with colours
+
+# Activate device
+sudo ip link set dev enp0s8 up / down
+
+# Add IP address
+sudo ip addr add / delete 10.0.0.40/24 dev enp0s8
+
+# Ubuntu Netplan /etc/netplan
+sudo netplan get / try / apply
+
+# Routes
+sudo ip route
+
+# DNS status /etc/systemd/resolved.conf
+resolvectl status
+systemctl restart systemd-resolved.service
+```
+
+### 79. Configure Bridge and Bonding Devices
+
+```Shell
+# Bridge <=> Bond devices
+# Bridge => Connects two different network 
+# Bond => redondance network cards
+# Bonding modes 0 to 6
+```
+
+### 80. Demo: Configure Bridge and Bonding Devices
+
+```Shell
+sudo netplan try
+sudo netplan apply
+cat /proc/net/bonding/bond0
+```
+
+### 81. Configure Packet Filtering (Firewall)
+
+```Shell
+# UFW
+# First rule match, first rule executed
+ufw allow 22/tcp
+ufw delete allow 22/tcp
+ufw allow 22
+ufw enable
+ufw status
+ufw allow from 10.0.0.192 to any port 22
+ufw allow from 10.0.0.0/24 to any port 22
+ufw status numbered
+ufw delete 1
+
+# Outgoing rule
+ufw deny out on enp0s3 to 8.8.8.8
+ufw allow in on enp0s3 from 10.0.0.192 to 10.0.0.0 proto tcp
 ```
