@@ -846,4 +846,22 @@ dd if=/dev/zero of=/swap bs=1M count=128 status=progress
 ### 91. Create and Configure File Systems
 
 ```Shell
+sudo mkfs.xfs /dev/sdb1
+sudo mkfs.ext4 -L "BackupVolume" /dev/sdb1
+man mkfs.ext4
+sudo tune2fs -l /dev/sdb1
+```
+
+### 92. Configure Systems to Mount Filesystems at or During Boot
+
+```Shell
+mount
+umount
+system daemon-reload
+lsblk
+blkid
+ls -l /dev/disk/by-uuid # list which UUID belong wich partition
+
+# Change label on WFS filesystem
+xfs_admin -L "SwapFS" /dev/vdb
 ```
