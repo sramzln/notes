@@ -825,7 +825,25 @@ PermitRootLogin no
 
 ## 6. Storage
 
+### 88. List, Create, Delete, and Modify Physical Storage Partitions
+
 ```Shell
 lsblk
+cfdisk
+```
 
+### 89. Configure and Manage Swap Space
+
+```Shell
+cfdisk
+swapon --show # list
+swapon /dev/sdb3
+swapoff /dev/sdb3
+mkswap /dev/sdb3 # create swap
+dd if=/dev/zero of=/swap bs=1M count=128 status=progress
+```
+
+### 91. Create and Configure File Systems
+
+```Shell
 ```
