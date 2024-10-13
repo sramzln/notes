@@ -803,3 +803,29 @@ ufw delete 1
 ufw deny out on enp0s3 to 8.8.8.8
 ufw allow in on enp0s3 from 10.0.0.192 to 10.0.0.0 proto tcp
 ```
+
+### 85. Set and Synchronize System Time Using Time Servers
+
+```Shell
+# NTP servers
+timedatectl list-timzone
+timedatectl set-timezone America/Los_Angeles
+vim /etc/systemd/timesyncd.conf.d/
+```
+
+### 86. Configure SSH Servers and Clients
+
+```Shell
+sudo vim /etc/ssh/sshd_config # daemon
+sudo vim /etc/ssh/ssh_config # client
+
+Port 22 # listen port
+PermitRootLogin no
+```
+
+## 6. Storage
+
+```Shell
+lsblk
+
+```
