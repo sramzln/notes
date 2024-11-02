@@ -865,3 +865,31 @@ ls -l /dev/disk/by-uuid # list which UUID belong wich partition
 # Change label on WFS filesystem
 xfs_admin -L "SwapFS" /dev/vdb
 ```
+
+### 94. Filesystem and Mount Options
+
+```Shell
+findmnt
+findmnt -t btrfs,ext4,vfat #noexec, nosuid
+man mount
+man xfs
+/etc/fstab
+```
+
+### 94. Use Remote Filesystems: NFS
+
+```Shell
+# NFS server
+# Install nfs-kernel-server package
+/etc/exports # Authorize wich machine can connect to our share
+
+# Apply changes
+exportfs -r # re-export
+exportfs -v # verbose
+```
+
+### 94. Use Network Bloc Devices: NBD
+
+```Shell
+
+```
