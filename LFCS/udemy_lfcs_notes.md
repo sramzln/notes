@@ -879,7 +879,7 @@ man xfs
 ### 94. Use Remote Filesystems: NFS
 
 ```Shell
-# NFS server
+# NFS server / client
 # Install nfs-kernel-server package
 /etc/exports # Authorize wich machine can connect to our share
 
@@ -891,5 +891,7 @@ exportfs -v # verbose
 ### 94. Use Network Bloc Devices: NBD
 
 ```Shell
-
+# NBD server / client
+# Install nbd-server
+/etc/nbd-server/config
 ```
