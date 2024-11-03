@@ -882,6 +882,7 @@ man xfs
 # NFS server / client
 # Install nfs-kernel-server package
 /etc/exports # Authorize wich machine can connect to our share
+/home 192.0.0.0/24(ro,no_subtree_check) 127.0.0.10(rw,no_root_squash,no_subtree_check)
 
 # Apply changes
 exportfs -r # re-export
@@ -891,7 +892,53 @@ exportfs -v # verbose
 ### 94. Use Network Bloc Devices: NBD
 
 ```Shell
+# https://medium.com/@aysadx/linux-nbd-introduction-to-linux-network-block-devices-143365f1901b
+# with NBD, you can take a device like /dev/sda on one machine and make it available to another machine
 # NBD server / client
-# Install nbd-server
+# 3 ways on local machine: SWAP / File System / RAW
+# Install nbd-server nbd-client
 /etc/nbd-server/config
+modeprobe nbd
+vim /etc/modules-load.d/
+nbd-client 127.0.0.1 -N partition2
+```
+
+### 99. Manage and Configure LVM Storage
+
+```Shell
+# Install lvm2
+# PE : Physical volume
+# VG : Volume group
+# LV : Logical volume
+# PE : 
+pvs
+vgcreate /dev/sds /dev/sdd
+lvcreate
+lvresize --extents 100%VG my_volume/partition1
+lvresize --size 2G my_volume/partition1
+lvdisplay
+lvresize --resizefs --size 3G my_volume/partition1
+```
+
+### 100. Monitor Storage Performance
+
+```Shell
+# Install sysstat package
+iostat / pidstat
+```
+
+### 102. Create, Manage, and Diagnose Advanced Filesystem Permissions
+
+```Shell
+# ACL
+# + sign next to rights
+setfacl --modify user:jeremy:rw file3
+setfacl --modify mask:r file3
+setfacl --remove-all file3
+getfacl file3
+setfacl --recursive -m user:jeremy:rwx dir1/
+chattr +a newfile # we can append but not replace
+chattr +i newfile # imutable
+lasattr newfile
+
 ```
